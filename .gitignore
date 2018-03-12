@@ -1,0 +1,10 @@
+/.vagrant/
+.idea/
+logs/
+.data/
+.DS_Store
+/.env
+symfony/var/cache
+symfony/var/logs
+symfony/var/sessions
+symfony/vendor
