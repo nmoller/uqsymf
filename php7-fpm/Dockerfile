@@ -2,6 +2,7 @@ FROM php:7.1-fpm
 
 RUN apt-get update && apt-get install -y \
     git \
+    libicu-dev \
     unzip
 
 # Install Composer
@@ -14,7 +15,7 @@ RUN ln -s /usr/share/zoneinfo/America/Toronto /etc/localtime
 RUN "date"
 
 # Type docker-php-ext-install to see available extensions
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql intl
 
 # Install opcache
 RUN docker-php-ext-install opcache
