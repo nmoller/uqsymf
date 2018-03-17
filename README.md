@@ -24,3 +24,12 @@ bin/composer install
 ### Symfony bin/console
 
 Pour rouler `bin/console` dans le container symfony.
+
+## Travailler
+
+On utilise la terminaison localhost pour éviter problèmes de https dans les dernières versions des navigateurs.
+
+Utiliser:
+```
+http://uqam.app.localhost:8000/
+```
