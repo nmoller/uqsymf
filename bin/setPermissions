@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+
+set -e
+
+
+# Thanks github moodle-docker
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+BASEDIR="$( cd -P "$( dirname "$SOURCE" )/../" && pwd )"
+
+. ${BASEDIR}/bin/lib/lib.sh
+
+docker-compose -f ${BASEDIR}/docker-compose.yml exec -T  php chmod -R 777 /var/www/symfony/var

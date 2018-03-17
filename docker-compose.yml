@@ -29,6 +29,8 @@ services:
         build: nginx
         ports:
             - 8000:80
+        links:
+            - php
         volumes_from:
             - php
         volumes:
@@ -36,16 +38,16 @@ services:
         networks:
             mynet:
                 ipv4_address: 172.25.0.4
-    phantomjs:
-        image: shufo/phantomjs
-        extra_hosts:
-            - ${DOMAIN}:172.25.0.4
-        command: --webdriver 4444
-        ports:
-          - 4444:4444
-        networks:
-            mynet:
-                ipv4_address: 172.25.0.5
+    #phantomjs:
+    #    image: shufo/phantomjs
+    #    extra_hosts:
+    #        - ${DOMAIN}:172.25.0.4
+    #    command: --webdriver 4444
+    #    ports:
+    #      - 4444:4444
+    #    networks:
+    #        mynet:
+    #           ipv4_address: 172.25.0.5
     mailcatcher:
         image: yappabe/mailcatcher
         ports:

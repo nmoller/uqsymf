@@ -25,10 +25,11 @@ if [ ! -f "${BASEDIR}/.env" ]; then
 fi
 
 # We use uqam.app... if other modify .env file and nginx/symfony.conf
-HOSTS_ENTRY="127.0.0.1 uqam.app"
+# It is important to keep the final localhost to bypass security in new browsers.
+HOSTS_ENTRY="127.0.0.1 uqam.app.localhost"
 # Modifier /etc/hosts file
 (grep "${HOSTS_ENTRY}" /etc/hosts) || echo "${HOSTS_ENTRY}" | sudo tee -a /etc/hosts
 
-createDirectoryIfNotExists .db
+createDirectoryIfNotExists .data
 
 createDirectoryIfNotExists logs
