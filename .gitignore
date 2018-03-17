@@ -7,4 +7,5 @@ logs/
 symfony/var/cache
 symfony/var/logs
 symfony/var/sessions
+symfony/var/SymfonyRequirements.php
 symfony/vendor
