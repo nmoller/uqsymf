@@ -16,3 +16,4 @@ BASEDIR="$( cd -P "$( dirname "$SOURCE" )/../" && pwd )"
 . ${BASEDIR}/bin/lib/lib.sh
 
 docker-compose -f ${BASEDIR}/docker-compose.yml exec -T  php chmod -R 777 /var/www/symfony/var
+docker-compose -f ${BASEDIR}/docker-compose.yml exec -T  php chmod -R 777 /var/www/.composer

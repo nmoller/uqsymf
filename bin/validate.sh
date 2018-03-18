@@ -30,6 +30,7 @@ HOSTS_ENTRY="127.0.0.1 uqam.app.localhost"
 # Modifier /etc/hosts file
 (grep "${HOSTS_ENTRY}" /etc/hosts) || echo "${HOSTS_ENTRY}" | sudo tee -a /etc/hosts
 
+createDirectoryIfNotExists .composer
 createDirectoryIfNotExists .data
 
 createDirectoryIfNotExists logs
