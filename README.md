@@ -26,7 +26,10 @@ bin/composer install
 Pour rouler `bin/console` dans le container symfony.
 
 ## Travailler
-
+On a modifié app_dev.php de symfony pour que l'adresse de dev soit reconnue pour voir debouge:
+```
+http://uqam.app.localhost:8000/app_dev.php/
+```
 On utilise la terminaison localhost pour éviter problèmes de https dans les dernières versions des navigateurs.
 
 Utiliser:
