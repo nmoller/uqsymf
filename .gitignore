@@ -1,6 +1,7 @@
 /.vagrant/
 .idea/
 logs/
+.composer
 .data/
 .DS_Store
 /.env
