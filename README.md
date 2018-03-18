@@ -33,3 +33,12 @@ Utiliser:
 ```
 http://uqam.app.localhost:8000/
 ```
+
+Pour visualiser les mails:
+```
+http://0.0.0.0:1080/
+```
+on peut s'assurer que le tout fonctionne en faisant:
+```
+bin/console swiftmailer:email:send --from=test@test.com --to=nmoller.c@gmail.com
+```
