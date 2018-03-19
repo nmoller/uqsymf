@@ -94,4 +94,11 @@ class Workcpace
     {
         return $this->description;
     }
+
+    public function __toString() {
+        // TODO: Implement __toString() method.
+        return 'test';
+    }
+
+
 }

@@ -36,7 +36,7 @@ class Task
     private $description;
 
     /**
-     * @var string
+     * @var \DateTime
      *
      * @ORM\Column(name="due_date", type="datetime", nullable=true)
      */
@@ -132,7 +132,7 @@ class Task
     /**
      * Set dueDate
      *
-     * @param string $dueDate
+     * @param \DateTime $dueDate
      *
      * @return Task
      */
@@ -146,7 +146,7 @@ class Task
     /**
      * Get dueDate
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDueDate()
     {

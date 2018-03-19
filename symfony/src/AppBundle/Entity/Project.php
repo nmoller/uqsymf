@@ -36,9 +36,9 @@ class Project
     private $description;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="due_date", type=""datetime"", nullable=true)
+     * @ORM\Column(name="due_date", type="datetime", nullable=true)
      */
     private $dueDate;
 
@@ -115,7 +115,7 @@ class Project
     /**
      * Set dueDate
      *
-     * @param string $dueDate
+     * @param \DateTime $dueDate
      *
      * @return Project
      */
@@ -129,7 +129,7 @@ class Project
     /**
      * Get dueDate
      *
-     * @return string
+     * @return \DateTime
      */
     public function getDueDate()
     {
