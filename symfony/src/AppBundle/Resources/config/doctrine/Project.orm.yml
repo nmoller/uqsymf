@@ -1,0 +1,47 @@
+AppBundle\Entity\Project:
+    type: entity
+    table: project
+    indexes:
+        fk_project_idx:
+            columns:
+                - workcpace_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        dueDate:
+            type: datetime
+            nullable: true
+            options:
+                fixed: false
+            column: due_date
+    manyToOne:
+        workcpace:
+            targetEntity: Workcpace
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                workcpace_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

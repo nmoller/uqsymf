@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Project
+ *
+ * @ORM\Table(name="project", indexes={@ORM\Index(name="fk_project_idx", columns={"workcpace_id"})})
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\ProjectRepository")
+ */
+class Project
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=45, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=45, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="due_date", type="string", length=45, nullable=true)
+     */
+    private $dueDate;
+
+    /**
+     * @var \AppBundle\Entity\Workcpace
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Workcpace")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="workcpace_id", referencedColumnName="id")
+     * })
+     */
+    private $workcpace;
+
+
+}
+
