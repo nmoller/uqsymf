@@ -17,7 +17,7 @@ function createDirectoryIfNotExists {
 # 
 function dockerComposeExec {
 	#TODO validate running
-	docker-compose -f ${BASEDIR}/docker-compose.yml exec -T  -u ${UID} $@
+	docker-compose -f ${BASEDIR}/docker-compose.yml exec  -T  --user ${UID} $@
 }
 
 #

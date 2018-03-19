@@ -3,6 +3,7 @@
 ### Setup
 ```
 bin/validate.sh
+# votre mot de passe sera demandé pour sudo nécessaire à écriture de /etc/hosts
 ```
 Partir docker-compose
 ```
