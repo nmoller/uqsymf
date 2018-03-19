@@ -20,8 +20,9 @@ BASEDIR="$( cd -P "$( dirname "$SOURCE" )/../" && pwd )"
 . ${BASEDIR}/bin/lib/lib.sh
 
 if [ ! -f "${BASEDIR}/.env" ]; then
-	echo "There is no .env file"
-	exit 1
+	echo "There is no .env file, we are going to create it"
+	cp ${BASEDIR}/.env.dist ${BASEDIR}/.env
+	correctNewEnvFile
 fi
 
 # We use uqam.app... if other modify .env file and nginx/symfony.conf

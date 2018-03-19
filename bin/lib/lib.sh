@@ -9,7 +9,20 @@ function createDirectoryIfNotExists {
 	fi
 }
 
+#
+# Executer docker-compose avec uid d'utilisateur local
+# À la base de commandes dans container php:
+# bin/composer
+# bin/console
+# 
 function dockerComposeExec {
 	#TODO validate running
 	docker-compose -f ${BASEDIR}/docker-compose.yml exec -T  -u ${UID} $@
+}
+
+#
+# On ajoute le path vers le dossier symfony
+#
+function correctNewEnvFile {
+	sed -i -e "s#SYMFONY_APP_PATH=/path/symfony#SYMFONY_APP_PATH=`pwd`/symfony#" ${BASEDIR}/.env
 }
