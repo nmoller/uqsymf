@@ -46,3 +46,9 @@ on peut s'assurer que le tout fonctionne en faisant:
 ```
 bin/console swiftmailer:email:send --from=test@test.com --to=nmoller.c@gmail.com
 ```
+
+## Extras
+
+```
+https://stackoverflow.com/questions/47641679/the-service-fos-user-mailer-has-a-dependency-on-a-non-existent-service-templa?#answer-47942577
+```
