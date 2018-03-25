@@ -65,6 +65,10 @@ services:
     #   networks:
     #       mynet:
     #           ipv4_address: 172.25.0.7
+    nodejs:
+        image: mkenney/npm:6.9-debian
+        volumes:
+           - ${SYMFONY_APP_PATH}:/src
 networks:
     mynet:
         driver: bridge
