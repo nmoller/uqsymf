@@ -46,3 +46,19 @@ on peut s'assurer que le tout fonctionne en faisant:
 ```
 bin/console swiftmailer:email:send --from=test@test.com --to=nmoller.c@gmail.com
 ```
+
+## Frontend dev
+
+La config nécessaire a été enregistrée dans webpack.config.js
+
+
+
+https://symfony.com/doc/3.4/frontend/encore/bootstrap.html
+
+Tous les éléments ont été ajoutés dans le fichier package.json pour npm.
+
+```
+docker-compose run nodejs /src/node_modules/.bin/encore dev
+# Pour produire les assets de prod: (tout est minimisé)
+docker-compose run nodejs /src/node_modules/.bin/encore production
+```
