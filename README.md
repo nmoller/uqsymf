@@ -51,7 +51,7 @@ bin/console swiftmailer:email:send --from=test@test.com --to=nmoller.c@gmail.com
 
 La config nécessaire a été enregistrée dans webpack.config.js
 
-
+Avec la version 4 de webpack, on a des erreurs... Cela va sûrement évoluer.
 
 https://symfony.com/doc/3.4/frontend/encore/bootstrap.html
 
