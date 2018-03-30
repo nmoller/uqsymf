@@ -49,6 +49,11 @@ bin/console swiftmailer:email:send --from=test@test.com --to=nmoller.c@gmail.com
 
 ## Frontend dev
 
+Initialiser:
+```
+docker-compose run nodejs npm install
+```
+
 La config nécessaire a été enregistrée dans webpack.config.js
 
 Avec la version 4 de webpack, on a des erreurs... Cela va sûrement évoluer.
