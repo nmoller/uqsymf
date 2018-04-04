@@ -67,3 +67,7 @@ docker-compose run nodejs /src/node_modules/.bin/encore dev
 # Pour produire les assets de prod: (tout est minimisé)
 docker-compose run nodejs /src/node_modules/.bin/encore production
 ```
+
+##  CODECPTION pour tests
+
+Déjà dans le composer.json. Il y a le raccourci pour execution dans bin `bin/codecept`
