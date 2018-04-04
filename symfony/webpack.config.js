@@ -10,6 +10,7 @@ Encore
 
     // will create web/build/app.js and web/build/app.css
     .addEntry('app', './assets/js/app.js')
+    .addEntry('bootstrap', './node_modules/bootstrap-sass/assets/javascripts/bootstrap.js')
     // read global.scss -> output as web/build/global.css
     .addStyleEntry('global', './assets/css/global.scss')
     // allow sass/scss files to be processed
