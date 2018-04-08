@@ -10,3 +10,4 @@ symfony/var/logs
 symfony/var/sessions
 symfony/var/SymfonyRequirements.php
 symfony/vendor
+symfony/node_modules
