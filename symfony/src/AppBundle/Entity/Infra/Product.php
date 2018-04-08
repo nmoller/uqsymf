@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Infra;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
@@ -37,6 +38,8 @@ class Product
     private $description;
 
     /**
+     * @Assert\Type(type="AppBundle\Entity\Infra\Category")
+     * @Assert\Valid()
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */

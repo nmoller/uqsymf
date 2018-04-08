@@ -13,6 +13,9 @@ use AppBundle\Entity\Infra\Category;
 use AppBundle\Entity\Infra\Product;
 use Symfony\Component\HttpFoundation\Response;
 
+use AppBundle\Form\Infra\ProductType;
+use AppBundle\Form\Infra\CategoryType;
+
 class DefaultController extends Controller
 
 {
@@ -21,42 +24,33 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        //return $this->render('default/index.html.twig', [
-        //    'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        //]);
-//        $form = $this->createFormBuilder()
-//            ->add('task', TextType::class)
-//            ->add('dueDate', DateType::class)
-//            ->add('save', SubmitType::class,  [
-//                'label' => 'Create',
-//                'attr' => ['class' => 'btn btn-danger'],
-//            ])
-//            ->getForm();
-//
-//        return $this->render('forms/form1.html.twig', array(
-//            'form' => $form->createView(),
-//        ));
+        $prod = new Product();
+        $repo = $this->getDoctrine()->getRepository(Category::class);
+        $form = $this->createForm(ProductType::class, $prod, [
+            'catRepo' => $repo,
+        ]);
 
-        $category = new Category();
-        $category->setName('Computer Peripherals');
+        $form->handleRequest($request);
 
-        $product = new Product();
-        $product->setName('Keyboard');
-        $product->setPrice(19.99);
-        $product->setDescription('Ergonomic and stylish!');
+        if ($form->isSubmitted() && $form->isValid() ) {
+            // $form->getData() holds the submitted values
+            // but, the original `$task` variable has also been updated
+            $product = $form->getData();
 
-        // relates this product to the category
-        $product->setCategory($category);
+            ob_start();
+            echo '<pre>';
+            var_dump($product); //would normally get printed to the screen/output to browser
+            echo '</pre>';
+            $output = ob_get_contents();
+            ob_end_clean();
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($category);
-        $entityManager->persist($product);
-        $entityManager->flush();
+            return new Response($output);
+        }
 
-        return new Response(
-            'Saved new product with id: '.$product->getId()
-            .' and new category with id: '.$category->getId()
-        );
+
+        return $this->render('default/form.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
     }
 }

@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Infra;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -24,7 +25,7 @@ class Category
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -39,6 +40,11 @@ class Category
         $this->products = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->getName();
+    }
 
     /**
      * Get id
