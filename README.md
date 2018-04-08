@@ -51,7 +51,7 @@ bin/console swiftmailer:email:send --from=test@test.com --to=nmoller.c@gmail.com
 
 Initialiser:
 ```
-docker-compose run nodejs npm install
+docker-compose run --rm nodejs npm install
 ```
 
 La config nécessaire a été enregistrée dans webpack.config.js
@@ -63,9 +63,9 @@ https://symfony.com/doc/3.4/frontend/encore/bootstrap.html
 Tous les éléments ont été ajoutés dans le fichier package.json pour npm.
 
 ```
-docker-compose run nodejs /src/node_modules/.bin/encore dev
+bin/encore dev
 # Pour produire les assets de prod: (tout est minimisé)
-docker-compose run nodejs /src/node_modules/.bin/encore production
+bin/encore production
 ```
 
 # Extras

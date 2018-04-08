@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+
+
+# Pour bâtir bundle dev 
+# bin/encore dev
+# pour minimiser et faire tout le kit pour production
+# bin/encore prod
+
+set -e
+
+docker-compose run --rm nodejs /src/node_modules/.bin/encore $@
