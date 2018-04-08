@@ -35,16 +35,22 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid() ) {
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
+
             $product = $form->getData();
 
-            ob_start();
-            echo '<pre>';
-            var_dump($product); //would normally get printed to the screen/output to browser
-            echo '</pre>';
-            $output = ob_get_contents();
-            ob_end_clean();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($product);
+            $entityManager->flush();
 
-            return new Response($output);
+//            ob_start();
+//            echo '<pre>';
+//            var_dump($product); //would normally get printed to the screen/output to browser
+//            echo '</pre>';
+//            $output = ob_get_contents();
+//            ob_end_clean();
+//
+//            return new Response($output);
+            return $this->redirectToRoute('form_success', ['saved_id' => $product->getId()]);
         }
 
 
@@ -52,5 +58,14 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
 
+    }
+
+    /**
+     * @Route("/afterForm/{saved_id}", name="form_success", requirements={"saved_id"="\d+"})
+     */
+    public function createdAction(Request $request, $saved_id = 1) {
+        return $this->render('default/afterForm.html.twig', array(
+            'id' => $saved_id,
+        ));
     }
 }
